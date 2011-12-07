@@ -6,9 +6,30 @@ var getBlocks = function (letter) {
         eight: ["F", "J", "O"],
         seven: ["Y", "T", "L"]
     };
-    if (letter in letters.eleven) {
-      console.log(11)  
+    function convert(a) {
+        var o = {};
+        for(var i = 0; i < a.length; i++) {
+            o[a[i]]='';
+        };
+        return o;
+    };
+    if (letter in convert(letters.eleven)) {
+        return 11;
+    } else {
+        if (letter in convert(letters.ten)) {
+            return 10;
+        } else {
+            if (letter in convert(letters.nine)) {
+                return 9;
+            } else {
+                if (letter in convert(letters.eight)) {
+                    return 8;
+                } else {
+                    return 7;
+                };
+            };
+        };
     };
 };
-
-getBlocks("B")
+l = getBlocks("Y")
+console.log(l)
