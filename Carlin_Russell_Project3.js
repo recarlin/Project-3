@@ -1,3 +1,10 @@
+var phrase = "SDI IS SWEET",
+    friendsOnline = true
+var getStarted = function (spellOut) {
+    console.log("I think my Minecraft world needs some decoration. How about giant letters spelling out " + spellOut + "! Yeah, that is just what this place needs!")
+        if (friendsOnline == true) {}
+};
+
 var getBlocks = function (letter) {
     var letters = {
         eleven: ["B", "H", "M", "N", "Q", "R", "S", "U", "Q", "Z"],
