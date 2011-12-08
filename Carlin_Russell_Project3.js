@@ -1,15 +1,13 @@
 var phrase = "CODINGISFUN",
-    friendsOnline = true
-
+    friendsOnline = true;
 var getStarted = function (spellOut) {
-    console.log("I think my Minecraft world needs some decoration. How about giant letters spelling out " + spellOut + "! Yeah, that is just what this place needs!")
+    console.log("I think my Minecraft world needs some decoration. How about giant letters spelling out " + spellOut + "! Yeah, that is just what this place needs!");
         if (friendsOnline == true) {
-            console.log("Some friends are on, maybe I could get their help. But first I need to figure out what I'm going to make it out of.")
+            console.log("Some friends are on, maybe I could get their help. But first I need to figure out what I'm going to make it out of.");
         } else {
-            console.log("Seems everyone is offline... I guess I'll have to do this all on my own. Well, what should I make it out of?")
+            console.log("Seems everyone is offline... I guess I'll have to do this all on my own. Well, what should I make it out of?");
         };
 };
-
 var getMaterial = function () {
     var materials = ["cobblestone", "wood", "wool"]
         matPick = materials[Math.floor(Math.random()*materials.length)]
@@ -21,7 +19,6 @@ var getMaterial = function () {
         };
     return matPick;
 };
-
 var getBlocks = function (letter) {
     var letters = {
         eleven: ["B", "H", "M", "N", "Q", "R", "S", "U", "Q", "Z"],
@@ -55,36 +52,43 @@ var getBlocks = function (letter) {
         };
     };
 };
-
-var getResources = function (matPick) {
-    var letters = phrase.split(""),
-        need = 0
-        for (i = 0, l = letters.length; i < l; i++) {
-            need = need + getBlocks(letters[i]);
-        };
-        if (matPick == "wood") {
-            need = need / 4
-            console.log("Since I'm using wood and I get 4 wood from each log, I should only need about " + need + " logs to finish the job.")
-        } else {
-            console.log("I will need about " + need + " " + matPick + " blocks to finish the job.")
-        };
-        if (friendsOnline == true) {
-            console.log("My buddies are on, I'll ask them if they have the stuff I need.")
-            console.log("Hey guys, can I borrow " + need + " " + matPick + " for something I want to build?")
-            var answer = Math.round(Math.random());
-                if (answer == 0) {
-                    console.log("Sure. It is all in the box here.")
-                    console.log("Thanks! I'll be sure to return the favor.")
+var getFriend = function (name) {
+        var friend = {
+            name: name,
+            tool: {},
+            ask: function () {
+                var yesNo = Math.round(Math.random)
+                if (yesNo == 0) {
+                    return true
                 } else {
-                    console.log("Sorry, I need my " + matPick + " for a project I am doing.")
-                    console.log("Ok, I guess I'll go collect it then, thanks anyway.")
+                    return false
+                }
+            },
+            getTool: function () {  
+                var getQuality = function () {
+                    var m = ["diamond", "gold", "iron"]
+                    q = m[Math.floor(Math.random()*m.length)]
+                    return q;
                 };
-        } else {
-            console.log("Everyone is offline, so I'll have to go collect the " + matPick + " myself. Better get started!")
+                var getType = function () {
+                    var t = ["sheers", "shovel", "pick"]
+                    i = t[Math.floor(Math.random()*t.length)]
+                    return i;
+                };
+                var t = {
+                    type: getType(),
+                    quality: getQuality(),
+                    durability: Math.ceil(Math.random()*100)
+                };
+                return t;
+            }
         };
-        console.log("Ok, now that I got the " + matPick + " that I need, time to build!")
-    return need;
+    return friend
 };
-
+var buildLetters = function () {
+    
+};
 matPick = getMaterial()
-need = getResources(matPick)
+bob = getFriend("Bob")
+bob.tool = bob.getTool()
+console.log(bob)
