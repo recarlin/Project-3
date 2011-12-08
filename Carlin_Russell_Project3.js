@@ -1,4 +1,4 @@
-var phrase = "SDI IS SWEET",
+var phrase = "CODINGISFUN",
     friendsOnline = true
 
 var getStarted = function (spellOut) {
@@ -19,7 +19,7 @@ var getMaterial = function () {
         } else {
             console.log("Everyone is offline, so I guess I'll have to harvest the " + matPick + " without help.")
         };
-    return matPick
+    return matPick;
 };
 
 var getBlocks = function (letter) {
@@ -30,12 +30,12 @@ var getBlocks = function (letter) {
         eight: ["F", "J", "O"],
         seven: ["Y", "T", "L"]
     };
-    function convert(a) {
-        var o = {};
-        for(var i = 0; i < a.length; i++) {
-            o[a[i]]='';
+    function convert(array) {
+        var object = {};
+        for (var i = 0; i < array.length; i++) {
+            object[array[i]]="";
         };
-        return o;
+        return object;
     };
     if (letter in convert(letters.eleven)) {
         return 11;
@@ -55,5 +55,17 @@ var getBlocks = function (letter) {
         };
     };
 };
-l = getBlocks("Y")
-console.log(l)
+
+var getResources = function (matPick) {
+    var letters = phrase.split(""),
+        need = 0
+    console.log(letters)
+        for (i = 0, l = letters.length; i < l; i++) {
+            need = need + getBlocks(letters[i]);
+        console.log(need)
+        };
+    return need;
+};
+
+need = getResources()
+// console.log(need)
