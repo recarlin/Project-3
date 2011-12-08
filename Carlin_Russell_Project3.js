@@ -1,4 +1,4 @@
-var phrase = "CODINGISFUN",
+var phrase = "CODING IS FUN",
     friendsOnline = true;
 var getStarted = function (spellOut) {
     console.log("I think my Minecraft world needs some decoration. How about giant letters spelling out " + spellOut + "! Yeah, that is just what this place needs!");
@@ -46,11 +46,29 @@ var getBlocks = function (letter) {
                 if (letter in convert(letters.eight)) {
                     return 8;
                 } else {
-                    return 7;
+                    if (letter in convert(letters.seven)) {
+                        return 7;
+                    } else {
+                        return 0;
+                    };
                 };
             };
         };
     };
+};
+var getResources = function (matPick) {
+    var letters = phrase.split(""),
+        need = 0
+        for (i = 0, l = letters.length; i < l; i++) {
+            need = need + getBlocks(letters[i]);
+        };
+        if (matPick == "wood") {
+            need = need / 4
+            console.log("Since I'm using wood and I get 4 wood from each log, I should only need about " + need + " logs to finish the job.")
+        } else {
+            console.log("I will need about " + need + " " + matPick + " blocks to finish the job.")
+        };
+    return need;
 };
 var getFriend = function (name) {
         var friend = {
@@ -85,10 +103,21 @@ var getFriend = function (name) {
         };
     return friend
 };
-var buildLetters = function () {
-    
+var buildLetters = function (matPick, need) {
+    var words = phrase.split(" ")
+        wordOn = 0
+        letters = words[wordOn].split("")
+        console.log(words)
+    while (wordOn !== words.length) {
+        for (i = 0, l = letters.length; i < l; i++) {
+            console.log("Got the " + letters[i] + " done.")
+        }
+        console.log("Got the " + words[wordOn] + " done.")
+        wordOn++
+    }
 };
 matPick = getMaterial()
 bob = getFriend("Bob")
 bob.tool = bob.getTool()
-console.log(bob)
+need = getResources(matPick)
+buildLetters(matPick, need)
