@@ -163,7 +163,7 @@ var jsonData = function (json) {
     console.log("Hey what is this note?")
     for (i = 0, l = json.serverList.length; i < l; i++) {
         var list = json.serverList[i]
-        console.log(list.name + ", or " + list.ign + ", has " + list.diamonds + " diamonds and their specialty is " + list.specialty)
+        console.log(list.name + ", or " + list.ign + ", has " + list.diamonds + " diamonds and their specialty is " + list.specialty + ".")
     };
     console.log("This is the server list I lost! Sweet!")
 };

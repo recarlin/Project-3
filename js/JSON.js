@@ -11,7 +11,7 @@ var json = {
         {
             "name": "Johnny",
             "ign": "BuffMePLZ",
-            "specialty": "monsterKilling",
+            "specialty": "monster killing",
             "diamonds": 68
         },
         {
