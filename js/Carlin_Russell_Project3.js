@@ -157,6 +157,14 @@ var doIt = function (){
         buildLetters()
     console.log("AWESOME! I got " + phrase + " spelled out in big, " + matPick + " letters!")
 };
+
 doIt()
-for (i = 0, l = letters.length; i < l; i++) {
-    need = need + getBlocks(letters[i]);
+var jsonData = function (json) {
+    console.log("Hey what is this note?")
+    for (i = 0, l = json.serverList.length; i < l; i++) {
+        var list = json.serverList[i]
+        console.log(list.name + ", or " + list.ign + ", has " + list.diamonds + " diamonds and their specialty is " + list.specialty)
+    };
+    console.log("This is the server list I lost! Sweet!")
+};
+jsonData(json)
