@@ -70,7 +70,7 @@ var getResources = function (matPick) {
         };
     return need;
 };
-var getFriend = function (name) {
+var getFriend = function () {
     var friend = {
         name: "",
         tool: {},
